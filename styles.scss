@@ -16,7 +16,7 @@ $mobile: 720px;
 $desktop: 1440px;
 
 @mixin shadow {
-    box-shadow: 0 0.25rem 0.5rem rgba(black, .15);
+    box-shadow: 0 0.1rem 0.5rem rgba(black, 0.1);
 }
 
 @mixin smooth {
@@ -52,6 +52,7 @@ $desktop: 1440px;
     padding: 0.8rem 0 0.8rem 1.25rem;
     border: 1px solid $color-text-main;
     border-radius: 0.25rem;
+    font-family: $font-raleway;
     @include shadow();
 
     &::placeholder {
@@ -186,6 +187,22 @@ main {
         gap: 10rem;
     }
 
+    .img-big {
+        width: 90%;
+        height: auto;
+        object-fit: contain;
+        margin: 3rem auto 2rem;
+
+        @media screen and (min-width: $mobile) {
+            width: auto;
+            height: auto;
+            max-width: 50%;
+            z-index: 1;
+            position: relative;
+            top: 0;
+        }
+    }
+
     .bg-above {
         @include flexcol();
         align-content: center;
@@ -196,61 +213,103 @@ main {
             flex-direction: row-reverse;
             padding: 0 5%;
             margin: 0rem;
+            gap: 3rem;
         }
         
         .subsector-1{
             max-width: 50rem;
             align-content: center;
-            margin: 0 auto;
-        }
-
-        h1 {
-            font-size: clamp(1.5rem, 5vw, 2.5rem);
             text-align: center;
+            margin: 0 auto;
+
             @media screen and (min-width: $mobile) {
                 //font-size: 2.5rem;
                 font-family: $font-raleway;
+                font-weight: 600;
                 text-align: left;
             }
-        }
 
-        .p-center{
-            padding: 0 0;
-            margin-bottom: 2.5rem;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            text-align: center;
-            @media screen and (min-width: $mobile) {
+            h1 {
+                font-size: clamp(1.5rem, 5vw, 2.5rem);
+    
+                @media screen and (min-width: $mobile) {
+                    line-height: 1.5;
+                }
+            }
+    
+            .p-center{
+                padding: 0 0;
+                margin-bottom: 2.5rem;
+                font-size: 0.9rem;
+                line-height: 1.5;
+                font-family: $font-open;
+                font-weight: 600;
+    
+                @media screen and (min-width: $mobile) {
+                    font-size: 1rem;
+                    padding-right: 2rem;
+                    margin-bottom: 0.5rem;
+                }
+            }
+    
+            form {
+                display: grid;
+                grid-auto-flow: column;
+                grid-template-rows: auto auto auto;
+                grid-template-areas: "input" "span" "button";
+                padding: 0 1rem;
+                margin-bottom: 5rem;
                 text-align: left;
-            }
-        }
-
-        form {
-            padding: 0 1rem;
-            margin-bottom: 5rem;
-            input {
-                @extend %input;
-
+    
                 @media screen and (min-width: $mobile) {
-                    display: inline;
+                    padding: 0;
+                    grid-template-rows: auto auto;
+                    grid-template-columns: auto auto;
+                    grid-template-areas: "input button" "span .";
+                    column-gap: 1rem;
+                    margin-top: 1rem;
+                }
+    
+                input {
+                    @extend %input;
+                    grid-area: input;
+    
+                    @media screen and (min-width: $mobile) {
+                        display: inline;
+                        max-width: 20rem;
+                        margin-right: 1rem;
+                        font-family: $font-open;
+    
+                        &::placeholder {
+                            font-family: $font-open;
+                            font-weight: $font-weight-regular;
+                            color: $color-text-placeholder;
+                        }
+                    }
+                }
+    
+                span {
+                    text-align: left;
+                    grid-area: span;
+    
+                    @media screen and (min-width: $mobile) {
+                        display: inline;
+                    }
+                }
+            
+                button {
+                    @extend %button;
+                    margin-top: 1rem;
+                    grid-area: button;
+    
+    
+                    @media screen and (min-width: $mobile) {
+                        display: inline;
+                        max-width: 14rem;
+                        margin-top: 0;
+                    }
                 }
             }
-
-            span {
-                @media screen and (min-width: $mobile) {
-                    display: inline;
-                }
-            }
-        
-            button {
-                @extend %button;
-                margin-top: 1rem;
-
-                @media screen and (min-width: $mobile) {
-                    display: inline;
-                }
-            }
-        
         }
     }
 
@@ -284,132 +343,130 @@ main {
             }
         }
 
-        h2 {
-            font-family: $font-raleway;
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            @media screen and (min-width: $mobile) {
-                font-size: 2.5rem;
+        .subsector-2 {
+
+            h2 {
                 font-family: $font-raleway;
-                text-align: left;
-            }
-        }
-    
-        p {
-            margin: 0.5rem;
-        }
-     
-        .linkbox {
-            @include smooth();
-            display: flex;
-            gap: 0.4rem;
-            width:fit-content;
-            align-items: center;
-            justify-content: center;
-            margin: 2rem auto;
-            text-decoration: none;
-            border-bottom: 1px solid $color-link;
-    
-            &:hover {
-                border-color: color-mix(in srgb, $color-link 75%, white 25%);
-            }
-    
-            p {
-                $h: 170;
-                $s: 45%;
-                $l: 43%;
-                display: block;
+                font-size: 1.2rem;
+                margin-bottom: 1.5rem;
                 text-align: center;
-                text-decoration: none;
-                font-size: 0.8rem;
-                margin: 0.3rem 0;
-                color: $color-link;
-                &:hover {
-                    color: color-mix(in srgb, $color-link 75%, white 25%);
+                @media screen and (min-width: $mobile) {
+                    font-size: 2.5rem;
+                    font-family: $font-raleway;
+                    text-align: left;
                 }
             }
-    
-            .icon-arrow {
-                @extend %icon;
-                $url: './images/icon-arrow.svg';
-                @include iconlink($url);
-                @include size(1rem);
-            }
-        }
-    
         
+            p {
+                margin: 0.5rem;
+                color: $color-bg-2;
     
-        .card {
-            flex-grow: 0;
-            background-color: white;
-            border-radius: 0.3rem;
-            padding: 1rem 0.5rem 0.5rem 2rem;
-            margin: 1rem auto 5rem;
-            max-width: 20rem;
-            font-family: $font-open;
-            font-weight: $font-weight-regular;
-            font-size: 0.75rem;
-            line-height: 1.75;
-            @include shadow();
-            //box-shadow: 0 0rem 0.5rem rgba($color-text-placeholder, .5);
+                @media screen and (min-width: $mobile) {
+                    margin: 1.25rem 0.5rem 0.5rem;
+                }
     
-            img {
-                width: 5%;
-                height: 1rem;
-                margin: 0;
             }
-    
-            .author {
-                display: grid;
-                width: 70%;
-                height: 3rem;
+         
+            .linkbox {
+                @include smooth();
+                display: flex;
+                gap: 0.4rem;
+                width:fit-content;
                 align-items: center;
-                grid-template-columns: 1rem auto;
-                grid-template-rows: 1rem 1rem;
-                grid-template-areas: "avatar name"
-                                    "avatar job";
-                column-gap: 1.5rem;
-    
-                img {
-                    @include size(2rem);
-                    border-radius: 50%;
-                    grid-area: avatar;
+                justify-content: center;
+                margin: 2rem auto 2.5rem;
+                text-decoration: none;
+                border-bottom: 1px solid $color-link;
+                color: $color-link;
+        
+                &:hover {
+                    filter:brightness(125%);
                 }
     
-                h3{
-                    grid-area: name;
-                    font-size: 0.7rem;
-                    line-height: 0;
+                @media screen and (min-width: $mobile) {
+                    margin: 0 0.5rem 2.5rem;
                 }
-    
-                p {
-                    grid-area: job;
-                    font-size: 0.5rem;
-                    line-height: 0;
-                    margin: auto 0;
+        
+                .linkbox-text {
+                    $h: 170;
+                    $s: 45%;
+                    $l: 43%;
+                    display: block;
+                    text-align: center;
+                    text-decoration: none;
+                    font-size: 0.8rem;
+                    margin: 0.3rem 0;
+                    color: $color-link;
+                }
+        
+                .icon-arrow {
+                    @extend %icon;
+                    $url: './images/icon-arrow.svg';
+                    @include iconlink($url);
+                    @include size(1rem);
+                }
+            }
+        
+            
+        
+            .card {
+                flex-grow: 0;
+                background-color: white;
+                background-image: url("/images/icon-quotes.svg");
+                background-repeat: no-repeat;
+                background-position: 10% 12%;
+                background-size: 5% 8%;
+                border-radius: 0.3rem;
+                padding: 2.5rem 1% 0.5rem 5%;
+                margin: 1rem auto 5rem;
+                max-width: 16rem;
+                font-family: $font-open;
+                font-weight: 600;
+                font-size: 0.66rem;
+                line-height: 1.75;
+                @include shadow();
+                
+                @media screen and (min-width: $mobile) {
+                    margin: 1rem 0.5rem 5rem;
+                    max-width: 16rem;
+                }
+        
+                .author {
+                    display: grid;
+                    width: 70%;
+                    height: 3rem;
+                    margin-top: 1rem;
+                    padding-left: 0.5rem;
+                    align-items: center;
+                    grid-template-columns: 1rem auto;
+                    grid-template-rows: 1rem 1rem;
+                    grid-template-areas: "avatar name"
+                                        "avatar job";
+                    column-gap: 1.5rem;
+        
+                    img {
+                        @include size(2rem);
+                        border-radius: 50%;
+                        grid-area: avatar;
+                        margin: 0;
+                    }
+        
+                    h3{
+                        grid-area: name;
+                        font-size: 0.7rem;
+                        line-height: 0;
+                    }
+        
+                    .job {
+                        grid-area: job;
+                        font-size: 0.5rem;
+                        line-height: 0;
+                        margin: auto 0;
+                    }
                 }
             }
         }
     }
-
-    img {
-        width: 90%;
-        height: auto;
-        object-fit: contain;
-        margin: 3rem auto 2rem;
-        @media screen and (min-width: $mobile) {
-            width: auto;
-            height: auto;
-            max-width: 40vw;
-            z-index: 1;
-            position: relative;
-            top: 0;
-            
-        }
-    }
-
-    
 }
 
 .closure {
@@ -552,7 +609,8 @@ footer {
             i {
                 font-size: 1rem;
                 position: relative;
-                top: 0.05rem;
+                top: 0.1rem;
+                left: 0.03rem;
             }
         }
     }
