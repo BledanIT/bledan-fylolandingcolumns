@@ -1,0 +1,507 @@
+.closure form input, main .bg-above form input {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-width: 10rem;
+  padding: 0.8rem 0 0.8rem 1.25rem;
+  border: 1px solid hsl(243, 87%, 12%);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+}
+.closure form input::-moz-placeholder, main .bg-above form input::-moz-placeholder {
+  font-family: "Raleway", serif;
+  font-weight: 400;
+  color: hsl(0, 0%, 75%);
+}
+.closure form input::placeholder, main .bg-above form input::placeholder {
+  font-family: "Raleway", serif;
+  font-weight: 400;
+  color: hsl(0, 0%, 75%);
+}
+.closure form input:focus, main .bg-above form input:focus {
+  outline: none;
+}
+.closure form input:invalid, main .bg-above form input:invalid {
+  border-style: solid;
+  border-color: red;
+}
+.closure form input:invalid + span::before, main .bg-above form input:invalid + span::before {
+  content: "Please check your email";
+  color: red;
+  font-size: 0.75rem;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  justify-self: flex-start;
+}
+@media screen and (min-width: 720px) {
+  .closure form input, main .bg-above form input {
+    max-width: 30rem;
+  }
+}
+
+.closure form button, main .bg-above form button {
+  width: 100%;
+  min-width: 10rem;
+  text-align: center;
+  padding: 0.8rem 0;
+  border-radius: 0.25rem;
+  font-family: "Raleway", serif;
+  font-weight: 700;
+  font-size: 1rem;
+  background-color: hsl(224, 93%, 58%);
+  color: hsl(240, 75%, 98%);
+  border: none;
+  transition-timing-function: linear;
+  transition-duration: 150ms;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+}
+.closure form button:hover, main .bg-above form button:hover {
+  background-color: color-mix(in srgb, hsl(224, 93%, 58%) 75%, white 25%);
+}
+.closure form button:active, main .bg-above form button:active {
+  transform: scale(0.98);
+}
+@media screen and (min-width: 720px) {
+  .closure form button, main .bg-above form button {
+    max-width: 15rem;
+  }
+}
+
+footer .social a, footer .linklist a {
+  text-decoration: none;
+  color: inherit;
+}
+footer .social a:hover, footer .linklist a:hover {
+  color: color-mix(in srgb, hsl(224, 93%, 58%) 75%, white 25%);
+  border-color: color-mix(in srgb, hsl(224, 93%, 58%) 75%, white 25%);
+}
+
+footer .footcols .contact .icon-email, footer .footcols .contact .icon-phone, main .bg-below .linkbox .icon-arrow {
+  width: 1rem;
+  height: 1rem;
+  display: inline;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+}
+
+:root {
+  font-size: 16px;
+}
+
+body {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: "Open Sans", serif;
+  font-weight: 400;
+  color: hsl(243, 87%, 12%);
+}
+
+nav {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Raleway", serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  padding: 2rem;
+}
+@media screen and (min-width: 720px) {
+  nav {
+    padding: 4rem 5rem;
+  }
+}
+nav img {
+  width: 25%;
+  max-width: 10rem;
+}
+nav div {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  gap: 1rem;
+}
+@media screen and (min-width: 720px) {
+  nav div {
+    gap: 3rem;
+  }
+}
+nav div a {
+  text-decoration: none;
+  color: inherit;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0 0;
+}
+@media screen and (min-width: 720px) {
+  main {
+    gap: 10rem;
+  }
+}
+main .bg-above {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  background-color: white;
+  padding: 0 1.5rem;
+}
+@media screen and (min-width: 720px) {
+  main .bg-above {
+    flex-direction: row-reverse;
+    padding: 0 5%;
+    margin: 0rem;
+  }
+}
+main .bg-above .subsector-1 {
+  max-width: 50rem;
+  align-content: center;
+  margin: 0 auto;
+}
+main .bg-above h1 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  text-align: center;
+}
+@media screen and (min-width: 720px) {
+  main .bg-above h1 {
+    font-family: "Raleway", serif;
+    text-align: left;
+  }
+}
+main .bg-above .p-center {
+  padding: 0 0;
+  margin-bottom: 2.5rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: center;
+}
+@media screen and (min-width: 720px) {
+  main .bg-above .p-center {
+    text-align: left;
+  }
+}
+main .bg-above form {
+  padding: 0 1rem;
+  margin-bottom: 5rem;
+}
+@media screen and (min-width: 720px) {
+  main .bg-above form input {
+    display: inline;
+  }
+}
+@media screen and (min-width: 720px) {
+  main .bg-above form span {
+    display: inline;
+  }
+}
+main .bg-above form button {
+  margin-top: 1rem;
+}
+@media screen and (min-width: 720px) {
+  main .bg-above form button {
+    display: inline;
+  }
+}
+main .bg-below {
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(240, 75%, 98%);
+  padding: 0 1.5rem;
+  margin: 0 auto;
+  position: relative;
+}
+@media screen and (min-width: 720px) {
+  main .bg-below {
+    flex-direction: row-reverse;
+    padding: 0 5%;
+    margin: 0 0;
+  }
+}
+main .bg-below::before {
+  background-image: url("/images/bg-curve-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 3rem;
+  width: 100%;
+  content: " ";
+  position: absolute;
+  top: -3rem;
+  left: 0;
+}
+@media screen and (min-width: 720px) {
+  main .bg-below::before {
+    background-image: url("/images/bg-curve-desktop.svg");
+    height: 7rem;
+    top: -7rem;
+  }
+}
+main .bg-below h2 {
+  font-family: "Raleway", serif;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+@media screen and (min-width: 720px) {
+  main .bg-below h2 {
+    font-size: 2.5rem;
+    font-family: "Raleway", serif;
+    text-align: left;
+  }
+}
+main .bg-below p {
+  margin: 0.5rem;
+}
+main .bg-below .linkbox {
+  transition-timing-function: linear;
+  transition-duration: 150ms;
+  display: flex;
+  gap: 0.4rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
+  text-decoration: none;
+  border-bottom: 1px solid hsl(170, 45%, 43%);
+}
+main .bg-below .linkbox:hover {
+  border-color: color-mix(in srgb, hsl(170, 45%, 43%) 75%, white 25%);
+}
+main .bg-below .linkbox p {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.8rem;
+  margin: 0.3rem 0;
+  color: hsl(170, 45%, 43%);
+}
+main .bg-below .linkbox p:hover {
+  color: color-mix(in srgb, hsl(170, 45%, 43%) 75%, white 25%);
+}
+main .bg-below .linkbox .icon-arrow {
+  content: url("./images/icon-arrow.svg");
+  width: 1rem;
+  height: 1rem;
+}
+main .bg-below .card {
+  flex-grow: 0;
+  background-color: white;
+  border-radius: 0.3rem;
+  padding: 1rem 0.5rem 0.5rem 2rem;
+  margin: 1rem auto 5rem;
+  max-width: 20rem;
+  font-family: "Open Sans", serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.75;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+}
+main .bg-below .card img {
+  width: 5%;
+  height: 1rem;
+  margin: 0;
+}
+main .bg-below .card .author {
+  display: grid;
+  width: 70%;
+  height: 3rem;
+  align-items: center;
+  grid-template-columns: 1rem auto;
+  grid-template-rows: 1rem 1rem;
+  grid-template-areas: "avatar name" "avatar job";
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
+}
+main .bg-below .card .author img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  grid-area: avatar;
+}
+main .bg-below .card .author h3 {
+  grid-area: name;
+  font-size: 0.7rem;
+  line-height: 0;
+}
+main .bg-below .card .author p {
+  grid-area: job;
+  font-size: 0.5rem;
+  line-height: 0;
+  margin: auto 0;
+}
+main img {
+  width: 90%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin: 3rem auto 2rem;
+}
+@media screen and (min-width: 720px) {
+  main img {
+    width: auto;
+    height: auto;
+    max-width: 40vw;
+    z-index: 1;
+    position: relative;
+    top: 0;
+  }
+}
+
+.closure {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: hsl(238, 22%, 44%);
+  color: hsl(240, 75%, 98%);
+  padding: 3.5rem 2rem;
+}
+@media screen and (min-width: 720px) {
+  .closure {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10%;
+    padding: 3.5rem 5%;
+  }
+}
+.closure .closure-text {
+  text-align: center;
+}
+@media screen and (min-width: 720px) {
+  .closure .closure-text {
+    width: 50%;
+    flex-grow: 1;
+    text-align: left;
+  }
+}
+.closure .closure-text h2 {
+  margin: 0 auto;
+  font-family: "Raleway", serif;
+  font-size: clamp(1.3rem, 5vw, 2rem);
+}
+@media screen and (min-width: 720px) {
+  .closure .closure-text h2 {
+    font-size: 2rem;
+  }
+}
+.closure .closure-text p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+@media screen and (min-width: 720px) {
+  .closure .closure-text p {
+    padding-right: 2rem;
+    max-width: 30rem;
+  }
+}
+.closure form {
+  width: 90%;
+  align-self: center;
+}
+@media screen and (min-width: 720px) {
+  .closure form {
+    width: 40%;
+    padding-right: clamp(0rem, 1vw, 2rem);
+  }
+}
+.closure form input {
+  border-style: none;
+  padding-left: 0.75rem;
+}
+@media screen and (min-width: 720px) {
+  .closure form input {
+    display: block;
+  }
+}
+.closure form button {
+  margin-top: 0.75rem;
+}
+@media screen and (min-width: 720px) {
+  .closure form button {
+    display: block;
+  }
+}
+
+footer {
+  background-color: hsl(243, 87%, 12%);
+  color: hsl(240, 75%, 98%);
+  padding: 5rem 5%;
+  font-family: "Open Sans", serif;
+  font-size: 1.2rem;
+}
+footer img {
+  filter: brightness(0) saturate(100%);
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(193deg) brightness(1000%) contrast(100%);
+}
+footer .footcols {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 720px) {
+  footer .footcols {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: first baseline;
+  }
+}
+footer .footcols .contact {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+footer .footcols .contact p {
+  margin: 0.5rem 0;
+}
+footer .footcols .contact .icon-phone {
+  margin-right: 1rem;
+  content: url("/images/icon-phone.svg");
+}
+footer .footcols .contact .icon-email {
+  height: 0.75rem;
+  margin-right: 1rem;
+  content: url("/images/icon-email.svg");
+}
+footer .linklist {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+}
+footer .linklist a {
+  transition-timing-function: linear;
+  transition-duration: 150ms;
+  margin: 0.5rem 0;
+}
+footer .social {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+}
+footer .social a {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid hsl(240, 75%, 98%);
+  border-radius: 50%;
+  align-content: baseline;
+  transition-timing-function: linear;
+  transition-duration: 150ms;
+}
+footer .social a i {
+  font-size: 1rem;
+  position: relative;
+  top: 0.05rem;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}/*# sourceMappingURL=styles.css.map */

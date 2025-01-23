@@ -1,0 +1,568 @@
+$color-text-main: hsl(243, 87%, 12%);
+$color-text-placeholder: hsl(0, 0%, 75%);
+$color-btn: hsl(224, 93%, 58%);
+$color-link: hsl(170, 45%, 43%);
+$color-bg-1: hsl(240, 75%, 98%);
+$color-bg-2: hsl(238, 22%, 44%);
+
+$font-raleway: "Raleway", serif;
+$font-open: "Open Sans", serif;
+$font-default-size: 16px;
+
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+$mobile: 720px;
+$desktop: 1440px;
+
+@mixin shadow {
+    box-shadow: 0 0.25rem 0.5rem rgba(black, .15);
+}
+
+@mixin smooth {
+    transition-timing-function: linear;
+    transition-duration: 150ms;
+}
+
+@mixin flexcol {
+    display: flex;
+    flex-direction: column;
+  }
+
+@mixin flexrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+@mixin iconlink($url: '#'){
+    content: url($url);
+}
+
+@mixin size($size) {
+    width: $size;
+    height: $size;
+}
+
+%input {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    min-width: 10rem;
+    padding: 0.8rem 0 0.8rem 1.25rem;
+    border: 1px solid $color-text-main;
+    border-radius: 0.25rem;
+    @include shadow();
+
+    &::placeholder {
+        font-family: $font-raleway;
+        font-weight: $font-weight-regular;
+        color: $color-text-placeholder;
+    }
+    
+    &:focus {
+        outline: none;
+    }
+    
+    &:invalid {
+        border-style: solid;
+        border-color: red;
+
+        & + span::before {
+            content: "Please check your email";
+            color: red;
+            font-size: 0.75rem;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+            justify-self: flex-start;
+        }
+    }
+
+    @media screen and (min-width: $mobile) {
+        max-width: 30rem;
+    }
+}
+
+%button {
+    width: 100%;
+    min-width: 10rem;
+    text-align: center;
+    padding: 0.8rem 0;
+    border-radius: 0.25rem;
+    font-family: $font-raleway;
+    font-weight: $font-weight-bold;
+    font-size: 1rem;
+    background-color: $color-btn;
+    color: $color-bg-1;
+    border: none;
+    @include smooth();
+    @include shadow();
+
+    &:hover{
+        background-color: color-mix(in srgb, $color-btn 75%, white 25%);
+    }
+
+    &:active{
+        transform: scale(0.98);
+    }
+
+    @media screen and (min-width: $mobile) {
+        max-width: 15rem;
+    }
+}
+
+%footer-link {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+        color: color-mix(in srgb, $color-btn 75%, white 25%);
+        border-color: color-mix(in srgb, $color-btn 75%, white 25%);
+    }
+}
+
+%icon{
+    @include size(1rem);
+    display: inline;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+
+:root {
+    font-size: $font-default-size;
+}
+
+body {
+    box-sizing: border-box;
+    @include flexcol();
+    margin: 0;
+    font-family: $font-open;
+    font-weight: $font-weight-regular;
+    color: $color-text-main;
+}
+
+nav {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: $font-raleway;
+    font-weight: $font-weight-regular;
+    font-size: 0.9rem;
+    padding: 2rem;
+
+    @media screen and (min-width: $mobile) {
+        padding: 4rem 5rem;
+    }
+
+    img {
+        width: 25%;
+        max-width: 10rem;
+    }
+
+    div {
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        gap: 1rem;
+
+        @media screen and (min-width: $mobile) {
+            gap: 3rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    } 
+}
+
+main {
+    @include flexcol();
+    padding: 1.5rem 0 0;
+    @media screen and (min-width: $mobile) {
+        gap: 10rem;
+    }
+
+    .bg-above {
+        @include flexcol();
+        align-content: center;
+        background-color: white;
+        padding: 0 1.5rem;
+
+        @media screen and (min-width: $mobile) {
+            flex-direction: row-reverse;
+            padding: 0 5%;
+            margin: 0rem;
+        }
+        
+        .subsector-1{
+            max-width: 50rem;
+            align-content: center;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            text-align: center;
+            @media screen and (min-width: $mobile) {
+                //font-size: 2.5rem;
+                font-family: $font-raleway;
+                text-align: left;
+            }
+        }
+
+        .p-center{
+            padding: 0 0;
+            margin-bottom: 2.5rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            text-align: center;
+            @media screen and (min-width: $mobile) {
+                text-align: left;
+            }
+        }
+
+        form {
+            padding: 0 1rem;
+            margin-bottom: 5rem;
+            input {
+                @extend %input;
+
+                @media screen and (min-width: $mobile) {
+                    display: inline;
+                }
+            }
+
+            span {
+                @media screen and (min-width: $mobile) {
+                    display: inline;
+                }
+            }
+        
+            button {
+                @extend %button;
+                margin-top: 1rem;
+
+                @media screen and (min-width: $mobile) {
+                    display: inline;
+                }
+            }
+        
+        }
+    }
+
+    .bg-below {
+        @include flexcol();
+        background-color: $color-bg-1;
+        padding: 0 1.5rem;
+        margin: 0 auto;
+        position: relative;
+
+        @media screen and (min-width: $mobile) {
+            flex-direction: row-reverse;
+            padding: 0 5%;
+            margin: 0 0;
+        }
+
+        &::before {
+            background-image: url("/images/bg-curve-mobile.svg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 3rem;
+            width: 100%;
+            content: " ";
+            position: absolute;
+            top: -3rem;
+            left: 0;
+            @media screen and (min-width: $mobile) {
+                background-image: url("/images/bg-curve-desktop.svg");
+                height: 7rem;
+                top: -7rem;
+            }
+        }
+
+        h2 {
+            font-family: $font-raleway;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            @media screen and (min-width: $mobile) {
+                font-size: 2.5rem;
+                font-family: $font-raleway;
+                text-align: left;
+            }
+        }
+    
+        p {
+            margin: 0.5rem;
+        }
+     
+        .linkbox {
+            @include smooth();
+            display: flex;
+            gap: 0.4rem;
+            width:fit-content;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            text-decoration: none;
+            border-bottom: 1px solid $color-link;
+    
+            &:hover {
+                border-color: color-mix(in srgb, $color-link 75%, white 25%);
+            }
+    
+            p {
+                $h: 170;
+                $s: 45%;
+                $l: 43%;
+                display: block;
+                text-align: center;
+                text-decoration: none;
+                font-size: 0.8rem;
+                margin: 0.3rem 0;
+                color: $color-link;
+                &:hover {
+                    color: color-mix(in srgb, $color-link 75%, white 25%);
+                }
+            }
+    
+            .icon-arrow {
+                @extend %icon;
+                $url: './images/icon-arrow.svg';
+                @include iconlink($url);
+                @include size(1rem);
+            }
+        }
+    
+        
+    
+        .card {
+            flex-grow: 0;
+            background-color: white;
+            border-radius: 0.3rem;
+            padding: 1rem 0.5rem 0.5rem 2rem;
+            margin: 1rem auto 5rem;
+            max-width: 20rem;
+            font-family: $font-open;
+            font-weight: $font-weight-regular;
+            font-size: 0.75rem;
+            line-height: 1.75;
+            @include shadow();
+            //box-shadow: 0 0rem 0.5rem rgba($color-text-placeholder, .5);
+    
+            img {
+                width: 5%;
+                height: 1rem;
+                margin: 0;
+            }
+    
+            .author {
+                display: grid;
+                width: 70%;
+                height: 3rem;
+                align-items: center;
+                grid-template-columns: 1rem auto;
+                grid-template-rows: 1rem 1rem;
+                grid-template-areas: "avatar name"
+                                    "avatar job";
+                column-gap: 1.5rem;
+    
+                img {
+                    @include size(2rem);
+                    border-radius: 50%;
+                    grid-area: avatar;
+                }
+    
+                h3{
+                    grid-area: name;
+                    font-size: 0.7rem;
+                    line-height: 0;
+                }
+    
+                p {
+                    grid-area: job;
+                    font-size: 0.5rem;
+                    line-height: 0;
+                    margin: auto 0;
+                }
+            }
+        }
+    }
+
+    img {
+        width: 90%;
+        height: auto;
+        object-fit: contain;
+        margin: 3rem auto 2rem;
+        @media screen and (min-width: $mobile) {
+            width: auto;
+            height: auto;
+            max-width: 40vw;
+            z-index: 1;
+            position: relative;
+            top: 0;
+            
+        }
+    }
+
+    
+}
+
+.closure {
+    @include flexcol();
+    gap: 0.5rem;
+    background-color: $color-bg-2;
+    color: $color-bg-1;
+    padding: 3.5rem 2rem;
+
+    @media screen and (min-width: $mobile) {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 10%;
+        padding: 3.5rem 5%;
+    }
+    .closure-text {
+        text-align: center;
+
+        @media screen and (min-width: $mobile) {
+            width: 50%;
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        h2 {
+            margin: 0 auto;
+            font-family: $font-raleway;
+            font-size: clamp(1.3rem, 5vw, 2rem);
+            @media screen and (min-width: $mobile) {
+                font-size: 2rem;
+            }
+        }
+    
+        p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            @media screen and (min-width: $mobile) {
+                padding-right: 2rem;
+                max-width: 30rem;
+            }
+        }
+    }
+    
+
+    form {
+        width: 90%;
+        align-self: center;
+
+        @media screen and (min-width: $mobile) {
+            width: 40%;
+            padding-right: clamp(0rem, 1vw, 2rem);
+        }
+
+        input {
+            @extend %input;
+            border-style: none;
+            padding-left: 0.75rem;
+
+            @media screen and (min-width: $mobile) {
+                display: block;
+            }
+        }
+
+        button {
+            @extend %button;
+            margin-top: 0.75rem;
+
+            @media screen and (min-width: $mobile) {
+                display: block;
+            }
+        }
+    }
+}
+
+footer {
+    background-color: $color-text-main;
+    color: $color-bg-1;
+    padding: 5rem 5%;
+    font-family: $font-open;
+    font-size: 1.2rem;
+
+    img {
+        filter: brightness(0) saturate(100%);
+        filter:invert(100%) sepia(0%) saturate(0%) hue-rotate(193deg) brightness(1000%) contrast(100%);
+    }
+
+    .footcols{
+        @include flexcol();
+
+        @media screen and (min-width: $mobile) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: first baseline;
+        }
+
+        .contact {
+            @include flexcol();
+            margin-top: 1rem;
+            p {
+                margin: 0.5rem 0;
+            }
+    
+            .icon-phone {
+                @extend %icon;
+                margin-right: 1rem;
+                @include iconlink('/images/icon-phone.svg');
+            }
+        
+            .icon-email {
+                @extend %icon;
+                height: 0.75rem;
+                margin-right: 1rem;
+                @include iconlink('/images/icon-email.svg');
+            }
+        }
+    }
+    
+    
+    
+    .linklist{
+        @include flexcol();
+        margin: 2rem 0;
+        a {
+            @extend %footer-link;
+            @include smooth();
+            margin: 0.5rem 0;
+        }
+    }
+    .social {
+        @include flexrow();
+        gap: 1rem;
+        text-align: center;
+        a {
+            @include size(2rem); 
+            border: 1px solid $color-bg-1;
+            border-radius: 50%;
+            align-content: baseline;
+            @extend %footer-link;
+            @include smooth();
+            i {
+                font-size: 1rem;
+                position: relative;
+                top: 0.05rem;
+            }
+        }
+    }
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+
+    a {
+        color: hsl(228, 45%, 44%);
+    }
+}
