@@ -327,7 +327,7 @@ main {
         }
 
         &::before {
-            background-image: url("/images/bg-curve-mobile.svg");
+            background-image: url("./images/bg-curve-mobile.svg");
             background-repeat: no-repeat;
             background-size: cover;
             height: 3rem;
@@ -337,7 +337,7 @@ main {
             top: -3rem;
             left: 0;
             @media screen and (min-width: $mobile) {
-                background-image: url("/images/bg-curve-desktop.svg");
+                background-image: url("./images/bg-curve-desktop.svg");
                 height: 7rem;
                 top: -7rem;
             }
@@ -412,7 +412,7 @@ main {
             .card {
                 flex-grow: 0;
                 background-color: white;
-                background-image: url("/images/icon-quotes.svg");
+                background-image: url("./images/icon-quotes.svg");
                 background-repeat: no-repeat;
                 background-position: 10% 12%;
                 background-size: 5% 8%;

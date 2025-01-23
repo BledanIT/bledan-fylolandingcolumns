@@ -291,7 +291,7 @@ main .bg-below {
   }
 }
 main .bg-below::before {
-  background-image: url("/images/bg-curve-mobile.svg");
+  background-image: url("./images/bg-curve-mobile.svg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 3rem;
@@ -303,7 +303,7 @@ main .bg-below::before {
 }
 @media screen and (min-width: 720px) {
   main .bg-below::before {
-    background-image: url("/images/bg-curve-desktop.svg");
+    background-image: url("./images/bg-curve-desktop.svg");
     height: 7rem;
     top: -7rem;
   }
@@ -368,7 +368,7 @@ main .bg-below .subsector-2 .linkbox .icon-arrow {
 main .bg-below .subsector-2 .card {
   flex-grow: 0;
   background-color: white;
-  background-image: url("/images/icon-quotes.svg");
+  background-image: url("./images/icon-quotes.svg");
   background-repeat: no-repeat;
   background-position: 10% 12%;
   background-size: 5% 8%;
